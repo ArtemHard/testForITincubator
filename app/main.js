@@ -32,7 +32,7 @@ At least one character ("" is not valid)
 Allowed characters are uppercase / lowercase latin letters and digits from 0 to 9
 No whitespaces / underscore
 */
-
+/*
 const test1 = "Mazinkaiser";
 const test2 = "helloworld_";
 const test3 = "PassW0rd";
@@ -44,4 +44,43 @@ function alphanumeric(string) {
   const reg = /[\W_]/gi;
   return string.length ? !reg.test(string) : false;
   //your code here
+}
+*/
+
+const test1 = ["Aa", "aaa", "aaaaa", "BbBb", "Aaaa", "AaAaAa", "a"]; // 'BbBb'
+const test2 = ["abc", "acb", "bac", "foo", "bca", "cab", "cba"]; // 'foo'
+const test3 = ["silvia", "vasili", "victor"]; // 'victor'
+const test4 = ["Tom Marvolo Riddle", "I am Lord Voldemort", "Harry Potter"]; // 'Harry Potter'
+const test5 = ["    ", "a", " "]; // 'a'
+
+// const str1 = "Tom Marvolo Riddle";
+// const str2 = "I am Lord Voldemort";
+// console.log(str1.toLowerCase().split("").sort().join("").trim());
+// console.log(str2.toLowerCase().split("").sort().join("").trim());
+
+const uniqItem = (string) => {
+  let str = string.toLowerCase().split("");
+  str = new Set(str);
+  str = [...str].sort().join("").trim();
+  return str;
+};
+
+// const mappedArr1 = test4.map((val) => uniqItem(val)); // ['a', 'b', 'a', 'a', 'a', 'a', 'a']
+// let index = -1;
+// const result = mappedArr1.filter((el, i, arr) => {
+//   if (arr.indexOf(el) === arr.lastIndexOf(el)) {
+//     index = arr.indexOf(el);
+//   }
+// });
+// console.log(test4[index]);
+
+function findUniq(arr) {
+  let index = 0;
+  const mapped = arr.map((val) => uniqItem(val));
+  mapped.filter((el, i, arr) => {
+    if (arr.indexOf(el) === arr.lastIndexOf(el)) {
+      index = arr.indexOf(el);
+    }
+  });
+  return arr[index];
 }
