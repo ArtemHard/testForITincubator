@@ -46,7 +46,7 @@ function alphanumeric(string) {
   //your code here
 }
 */
-
+/*
 const test1 = ["Aa", "aaa", "aaaaa", "BbBb", "Aaaa", "AaAaAa", "a"]; // 'BbBb'
 const test2 = ["abc", "acb", "bac", "foo", "bca", "cab", "cba"]; // 'foo'
 const test3 = ["silvia", "vasili", "victor"]; // 'victor'
@@ -64,7 +64,7 @@ const uniqItem = (string) => {
   str = [...str].sort().join("").trim();
   return str;
 };
-
+*/
 // const mappedArr1 = test4.map((val) => uniqItem(val)); // ['a', 'b', 'a', 'a', 'a', 'a', 'a']
 // let index = -1;
 // const result = mappedArr1.filter((el, i, arr) => {
@@ -73,7 +73,7 @@ const uniqItem = (string) => {
 //   }
 // });
 // console.log(test4[index]);
-
+/*
 function findUniq(arr) {
   let index = 0;
   const mapped = arr.map((val) => uniqItem(val));
@@ -84,3 +84,19 @@ function findUniq(arr) {
   });
   return arr[index];
 }
+*/
+
+// "Мама",
+// "авТо",
+// "гриБ",
+// 'Яблоко', 'яБлоко', 'ябЛоко', 'яблОко', 'яблоКо', 'яблокО'
+
+// "агент007" - содержит цифры
+// "стриж" - только строчные буквы
+// "ГТО", - более одной заглавной буквы
+// "Три богатыря" - содержит пробел, допустимы только буквы
+// . string.match(regexp)
+const checkStr = (str) => {
+  const reg = /^(?=.*[а-я])[а-я]*[А-Я][а-я]*$/gm;
+  return str.match(reg);
+};
